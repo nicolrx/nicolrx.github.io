@@ -87,7 +87,7 @@
     FB.api("/me/friends", function (response) {
       if (response && !response.error) {
         /* handle the result */
-        console.log('Here are the number of friends: ' + response.total_count);
+        console.log('Here are the number of friends: ' + response.uid.summary.total_count);
       }
     });
   }
