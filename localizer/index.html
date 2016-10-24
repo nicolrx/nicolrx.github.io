@@ -83,6 +83,12 @@
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
+    }),
+    FB.api("/me/friends", function (response) {
+      if (response && !response.error) {
+        /* handle the result */
+        console.log('Here are the names of your friends: ' + response.data);
+      }
     });
   }
 </script>
@@ -93,7 +99,7 @@
   the FB.login() function when clicked.
 -->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+<fb:login-button scope="public_profile,email,user_friends" onlogin="checkLoginState();">
 </fb:login-button>
 
 <div id="status">
